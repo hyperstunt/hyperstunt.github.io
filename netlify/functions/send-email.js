@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
     secure: true,
     auth: {
       user: "ahmedgharo@gmail.com",
-      pass: "ivdxnwcqvzxazxqp",
+      pass: "ivdx nwcq vzxa zxqp",
     },
   });
 

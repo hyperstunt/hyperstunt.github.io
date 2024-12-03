@@ -43,9 +43,9 @@ const responseClass = ref("");
 const sendEmail = async () => {
   try {
     // Get form values (make sure these are defined)
-    const nameValue = name.value;
-    const emailValue = email.value;
-    const messageValue = message.value;
+    const nameValue = formData.value.name;
+    const emailValue = formData.value.email;
+    const messageValue = formData.value.message;
 
     // Check if any of the fields are empty before sending the request
     if (!nameValue || !emailValue || !messageValue) {

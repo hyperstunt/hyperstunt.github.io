@@ -10,34 +10,28 @@ export default defineEventHandler(async (event) => {
 
   // Configure the transporter
   const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
+    host: "smtp.gmail.com", // Replace with your SMTP server
     port: 465,
-    secure: true,
+    secure: true, // Set to true for SSL
     auth: {
-      user: "ahmedgharo@gmail.com",
-      pass: process.env.EMAIL_PASS, // Remember to store credentials securely
+      user: "ahmedgharo@gmail.com", // Your email address
+      pass: "ivdx nwcq vzxa zxqp", // Your email password
     },
   });
 
   // Email options
   const mailOptions = {
-    from: `"${body.name}" <${body.email}>`,
-    to: "ahmed.c.gsm@gmail.com",
+    from: `"${body.name}" <${body.email}>`, // Sender address
+    to: "ahmed.c.gsm@gmail.com", // Your email address
     subject: "New Contact Form Submission",
-    text: body.message,
+    text: body.message, // Plain text body
   };
 
   try {
     await transporter.sendMail(mailOptions);
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ message: "Email sent successfully" }), // Ensure proper JSON response
-    };
+    return { status: 200, message: "Email sent successfully" };
   } catch (error) {
     console.error("Error sending email:", error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ message: "Failed to send email" }), // Ensure proper JSON response
-    };
+    return { status: 500, message: "Failed to send email" };
   }
 });

@@ -17,8 +17,8 @@ export default defineEventHandler(async (event) => {
     port: 465,
     secure: true,
     auth: {
-      user: "ahmedgharo@gmail.com",
-      pass: "ivdx nwcq vzxa zxqp",
+      user: process.env.SMTP_USER, // Use environment variables
+      pass: process.env.SMTP_PASS, // Use environment variables
     },
   });
 
@@ -37,7 +37,10 @@ export default defineEventHandler(async (event) => {
       body: JSON.stringify({ message: "Email sent successfully" }),
     };
   } catch (error) {
-    console.error("Error sending email:", error);
+    console.error("Error sending email:", {
+      message: error.message,
+      stack: error.stack,
+    });
     return {
       statusCode: 500,
       body: JSON.stringify({ message: "Failed to send email" }),

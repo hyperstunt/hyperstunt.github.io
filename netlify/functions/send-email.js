@@ -25,7 +25,7 @@ export default defineEventHandler(async (event) => {
   // Email options
   const mailOptions = {
     from: `"${body.name}" <${body.email}>`,
-    to: "ahmed.c.gsm@gmail.com", 
+    to: "ahmed.c.gsm@gmail.com",
     subject: "New Contact Form Submission",
     text: body.message,
   };
@@ -34,6 +34,9 @@ export default defineEventHandler(async (event) => {
     await transporter.sendMail(mailOptions);
     return {
       statusCode: 200,
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ message: "Email sent successfully" }),
     };
   } catch (error) {

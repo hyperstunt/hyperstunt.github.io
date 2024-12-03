@@ -42,30 +42,49 @@ const responseClass = ref("");
 
 const sendEmail = async () => {
   try {
+    // Get form values (make sure these are defined)
+    const nameValue = name.value;
+    const emailValue = email.value;
+    const messageValue = message.value;
+
+    // Check if any of the fields are empty before sending the request
+    if (!nameValue || !emailValue || !messageValue) {
+      responseMessage.value = "Please fill out all fields.";
+      responseClass.value = "alert-warning";
+      return; // Early exit if form is incomplete
+    }
+
     const response = await fetch('/.netlify/functions/send-email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        fullName: name.value,
-        email: email.value,
-        message: message.value,
+        name: nameValue,
+        email: emailValue,
+        message: messageValue,
       }),
     });
 
-    const data = await response.json();
+    const data = await response.json(); // Assuming the backend is sending JSON
 
     if (response.ok) {
-      alert('Email sent successfully!');
+      console.log("Success:", data.message);
+      responseMessage.value = data.message || "Email sent successfully.";
+      responseClass.value = "alert-success";
     } else {
-      alert(data.message || 'Something went wrong');
+      console.error("Error:", data.message);
+      responseMessage.value = data.message || "Failed to send email.";
+      responseClass.value = "alert-danger";
     }
+
   } catch (error) {
+    console.error("Error occurred:", error);
     responseMessage.value = "An error occurred. Please try again.";
     responseClass.value = "alert-danger";
   }
 };
+
 </script>
 
 <style scoped>

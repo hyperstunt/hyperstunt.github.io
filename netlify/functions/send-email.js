@@ -1,37 +1,46 @@
-import nodemailer from "nodemailer";
+import nodemailer from 'nodemailer';
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
   // Validate the incoming data
   if (!body.name || !body.email || !body.message) {
-    return { status: 400, message: "Invalid input" };
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: "Invalid input" }),
+    };
   }
 
   // Configure the transporter
   const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com", // Replace with your SMTP server
+    host: "smtp.gmail.com",
     port: 465,
-    secure: true, // Set to true for SSL
+    secure: true,
     auth: {
-      user: "ahmedgharo@gmail.com", // Your email address
-      pass: "ivdx nwcq vzxa zxqp", // Your email password
+      user: "ahmedgharo@gmail.com",
+      pass: "ivdx nwcq vzxa zxqp",
     },
   });
 
   // Email options
   const mailOptions = {
-    from: `"${body.name}" <${body.email}>`, // Sender address
-    to: "ahmed.c.gsm@gmail.com", // Your email address
+    from: `"${body.name}" <${body.email}>`,
+    to: "ahmed.c.gsm@gmail.com", 
     subject: "New Contact Form Submission",
-    text: body.message, // Plain text body
+    text: body.message,
   };
 
   try {
     await transporter.sendMail(mailOptions);
-    return { status: 200, message: "Email sent successfully" };
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: "Email sent successfully" }),
+    };
   } catch (error) {
     console.error("Error sending email:", error);
-    return { status: 500, message: "Failed to send email" };
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: "Failed to send email" }),
+    };
   }
 });

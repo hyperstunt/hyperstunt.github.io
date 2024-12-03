@@ -54,7 +54,7 @@ const sendEmail = async () => {
       return; // Early exit if form is incomplete
     }
 
-    const response = await fetch('/netlify/functions/send-email', {
+    const response = await fetch('/.netlify/functions/send-email.js', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

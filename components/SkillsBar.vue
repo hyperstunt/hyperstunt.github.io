@@ -23,6 +23,7 @@
 import { ref, onMounted } from "vue";
 
 const skills = ref([
+  { name: "Coffee", level: 100, description: "Master", isVisible: false },
   { name: "HTML", level: 95, description: "Pro", isVisible: false },
   { name: "CSS", level: 95, description: "Pro", isVisible: false },
   { name: "JavaScript", level: 90, description: "Confident", isVisible: false },

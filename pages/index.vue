@@ -33,7 +33,7 @@
         <!-- Projects Section -->
         <section id="projects" class="bg-light py-5">
             <div class="container">
-                <h2 class="mb-4 Project-sec-title">Commercial projects I've Built</h2>
+                <h2 class="mb-4 Project-sec-title">Commercial projects I've Built!</h2>
                 <div class="row">
                     <ProjectCard></ProjectCard>
                 </div>

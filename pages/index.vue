@@ -9,7 +9,6 @@
             <a href="#projects" class="btn btn-lg mt-4 px-4"
                 style="background-color: #FF5733; color: white; border: none;">View My Work</a>
         </section>
-        <!-- tesy -->
 
         <!-- About Section -->
         <section id="about" class="container py-5">

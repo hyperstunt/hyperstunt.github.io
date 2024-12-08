@@ -17,7 +17,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-
+// hello and welcome to my portfolio??
 const projects = ref([
   {
     id: 1,
@@ -93,7 +93,7 @@ const projects = ref([
 
 .project-card .card-body:hover {
   background: rgba(0, 0, 0, 0.2);
-  /* transition: background 0.5s ease; */
+  transition: background 0.5s ease;
 }
 
 .project-card:hover {

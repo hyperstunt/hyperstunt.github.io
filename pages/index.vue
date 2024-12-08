@@ -25,19 +25,7 @@
                         has been fueled by a passion for problem-solving and a relentless drive to stay updated with the
                         latest trends and technologies.
                     </p>
-                    <p>
-                        With hands-on experience in front-end and back-end development, I thrive on crafting scalable
-                        solutions that meet both user needs and business objectives. I enjoy taking on complex
-                        challenges and turning ideas into functional, visually appealing products.
-                    </p>
-                    <ul class="list-unstyled mt-4">
-                        <li><strong>Proficient in:</strong> Vue.js, Nuxt.js, and Tailwind CSS</li>
-                        <li><strong>Experience:</strong> Building scalable and high-performance web applications</li>
-                        <li><strong>Excited about:</strong> Solving challenging problems and collaborating on innovative
-                            projects</li>
-                        <li><strong>Hobbies:</strong> Exploring new technologies, contributing to open-source projects,
-                            and mentoring aspiring developers</li>
-                    </ul>
+                    <SkillsBar></SkillsBar>
                 </div>
             </div>
         </section>
@@ -65,7 +53,6 @@
 
 
 <script setup lang="ts">
-import AppFooter from '~/components/App-footer.vue';
 
 </script>
 
@@ -85,7 +72,7 @@ import AppFooter from '~/components/App-footer.vue';
 }
 
 .col-md-6 img {
-    max-width: 600px;
+    max-width: 400px;
     width: 100%;
     border-radius: 20%;
     border: 5px solid rgb(255, 87, 51);

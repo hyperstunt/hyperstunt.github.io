@@ -65,7 +65,7 @@ const sendEmail = () => {
   }
 
   const templateParams = {
-    name: formData.value.name,
+    from_name: formData.value.name,
     email: formData.value.email,
     message: formData.value.message,
   };

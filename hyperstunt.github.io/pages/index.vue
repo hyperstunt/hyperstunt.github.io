@@ -4,7 +4,7 @@
         <!-- Home Section -->
         <section id="home" class="text-center py-5 bg-light">
             <h1 class="display-4">Crafting Digital Dreams</h1>
-            <p class="lead mt-3">Welcome to my portfolio! I’m a creative developer transforming ideas into stunning web
+            <p class="lead mt-3">elcome to my portfolio! I’m a creative developer transforming ideas into stunning web
                 experiences.</p>
             <a href="#projects" class="btn btn-lg mt-4 px-4"
                 style="background-color: #FF5733; color: white; border: none;">View My Work</a>
